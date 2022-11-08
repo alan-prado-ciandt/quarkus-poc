@@ -22,7 +22,6 @@ public class MovieService {
 
     @Transactional
     public PageResponse<Movie> list(int pageSize, int page) {
-        System.out.println(pageSize);
         return new PageResponse<>(em.createQuery("FROM " + MOVIE_NAME)
                 .setMaxResults(pageSize)
                 .setFirstResult(pageSize * page)
