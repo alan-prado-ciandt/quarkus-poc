@@ -26,9 +26,8 @@ public class MovieResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public PageResponse<Movie> getMovies(final @BeanParam @Valid SearchMovies searchMovies) {
-        return movieService.list(searchMovies.getPageSize(), searchMovies.getPage());
+        return movieService.list(searchMovies.getPageSize(), searchMovies.getPage(), searchMovies.getDatasource());
     }
-
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
