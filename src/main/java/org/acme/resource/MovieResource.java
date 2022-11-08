@@ -8,7 +8,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.acme.model.Movie;
+import org.acme.model.movie.Movie;
 import org.acme.request.CreateMovie;
 import org.acme.request.SearchMovies;
 import org.acme.response.PageResponse;

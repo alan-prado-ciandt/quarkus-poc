@@ -82,8 +82,8 @@ services:
     extra_hosts:
       - "moby:127.0.0.1"
 
-  postgres:
-    image: postgres:15.0-bullseye
+  db:
+    image: postgres:15.0
     ports:
       - "5432:5432"
     environment:

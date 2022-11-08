@@ -1,13 +1,10 @@
 package org.acme.service;
 
-import java.util.function.Function;
-import java.util.function.Predicate;
+import io.quarkus.hibernate.orm.PersistenceUnit;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.Parameter;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
-import org.acme.model.Movie;
+import org.acme.model.movie.Movie;
 import org.acme.response.PageResponse;
 
 @ApplicationScoped
@@ -16,7 +13,7 @@ public class MovieService {
     private static final String MOVIE_NAME = Movie.class.getName();
     private final EntityManager em;
 
-    public MovieService(final EntityManager em) {
+    public MovieService(@PersistenceUnit("movies") final EntityManager em) {
         this.em = em;
     }
 
@@ -30,7 +27,6 @@ public class MovieService {
 
     @Transactional
     public Movie save(Movie movie) {
-        em.merge(movie);
         em.persist(movie);
         return movie;
     }

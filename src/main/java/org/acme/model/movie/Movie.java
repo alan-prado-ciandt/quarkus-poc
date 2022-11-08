@@ -1,4 +1,4 @@
-package org.acme.model;
+package org.acme.model.movie;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
