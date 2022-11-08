@@ -16,7 +16,7 @@ public abstract class PageRequest implements Serializable {
     @QueryParam("pageSize")
 //    @Max(message="Page maximum size", value=100)
 //    @Min(message="Page minimum size", value=10)
-//    @DefaultValue("10")
+    @DefaultValue("10")
     private int pageSize;
 
     public int getPage() {
