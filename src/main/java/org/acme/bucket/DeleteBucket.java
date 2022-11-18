@@ -6,14 +6,14 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
 
-import java.util.Iterator;
-
 public class DeleteBucket {
     public static void main(String[] args) {
-        final String USAGE = "\n" +
-                "To run this example, supply the name of an S3 bucket\n" +
-                "\n" +
-                "Ex: DeleteBucket <bucketname>\n";
+        final String USAGE = """
+
+                To run this example, supply the name of an S3 bucket
+
+                Ex: DeleteBucket <bucketname>
+                """;
 
         if (args.length < 1) {
             System.out.println(USAGE);
@@ -28,10 +28,7 @@ public class DeleteBucket {
             System.out.println(" - removing objects from bucket");
             ObjectListing object_listing = s3.listObjects(bucket_name);
             while (true) {
-                for (Iterator<?> iterator =
-                     object_listing.getObjectSummaries().iterator();
-                     iterator.hasNext(); ) {
-                    S3ObjectSummary summary = (S3ObjectSummary) iterator.next();
+                for (S3ObjectSummary summary : object_listing.getObjectSummaries()) {
                     s3.deleteObject(bucket_name, summary.getKey());
                 }
 
@@ -47,10 +44,7 @@ public class DeleteBucket {
             VersionListing version_listing = s3.listVersions(
                     new ListVersionsRequest().withBucketName(bucket_name));
             while (true) {
-                for (Iterator<?> iterator =
-                     version_listing.getVersionSummaries().iterator();
-                     iterator.hasNext(); ) {
-                    S3VersionSummary vs = (S3VersionSummary) iterator.next();
+                for (S3VersionSummary vs : version_listing.getVersionSummaries()) {
                     s3.deleteVersion(
                             bucket_name, vs.getKey(), vs.getVersionId());
                 }

@@ -38,12 +38,17 @@ public class CreateBucket {
     }
 
     public static void main(String[] args) {
-        final String USAGE = "\n" +
-                "CreateBucket - create an S3 bucket\n\n" +
-                "Usage: CreateBucket <bucketname>\n\n" +
-                "Where:\n" +
-                "  bucketname - the name of the bucket to create.\n\n" +
-                "The bucket name must be unique, or an error will result.\n";
+        final String USAGE = """
+
+                CreateBucket - create an S3 bucket
+
+                Usage: CreateBucket <bucketname>
+
+                Where:
+                  bucketname - the name of the bucket to create.
+
+                The bucket name must be unique, or an error will result.
+                """;
 
         if (args.length < 1) {
             System.out.println(USAGE);
