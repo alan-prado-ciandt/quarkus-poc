@@ -76,14 +76,6 @@
       <artifactId>quarkus-jdbc-postgresql</artifactId>
     </dependency>
 
-    <!-- TODO: CLEAN UP -->
-    <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-java-sdk</artifactId>
-      <version>1.12.344</version>
-    </dependency>
-    <!-- END: CLEAN UP -->
-
     <dependency>
       <groupId>software.amazon.awssdk</groupId>
       <artifactId>s3-transfer-manager</artifactId>
